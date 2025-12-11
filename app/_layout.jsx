@@ -1,7 +1,11 @@
 
-import { Text } from "react-native"
+import { Stack } from "expo-router"
 
 export default function RootLlayout() {
-  return <Text>Bom dia</Text>
-  
+  return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false}}/>
+      <Stack.Screen name="+not-found"/>
+    </Stack>
+  )  
 }
