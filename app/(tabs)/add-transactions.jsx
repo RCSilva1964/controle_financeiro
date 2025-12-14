@@ -1,4 +1,5 @@
-import { useRef, useState } from "react"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { useContext, useRef, useState } from "react"
 import { Alert, KeyboardAvoidingView, ScrollView, StyleSheet } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import Button from "../../components/Button"
@@ -6,6 +7,7 @@ import CategoryPicker from "../../components/CategoryPicker"
 import CurrencyInput from "../../components/CurrencyInput"
 import DatePicker from "../../components/DatePicker"
 import DescriptionInput from "../../components/DescriptionInput"
+import { MoneyContext } from "../../contexts/GlobalState"
 import { globalStyles } from "../../styles/globalStyles"
 
 const initialForm = {
@@ -16,11 +18,26 @@ const initialForm = {
     }
 
 export default function AddTransactions() {
+    const [transactions, setTransactions] = useContext(MoneyContext)
     const [form, setForm] = useState(initialForm)
-    const valueInputRef = useRef()    
+    const valueInputRef = useRef() 
+    
+    const setAsyncStorage = async (data) => {
+        try {
+            await AsyncStorage.setItem("transactions", JSON.stringify(data))
+        }catch(e) {
+            console.log(e)
+        }
+    }
 
-    const addTransactions = () => {
-        Alert.alert(`${form.description} | ${form.value} | ${form.date} | ${form.category}`)
+    const addTransactions = async () => {
+        const newTransactions = { id: transactions.length + 1, ...form };
+        const updateTransactions = [...transactions, newTransactions]
+        setTransactions(updateTransactions)
+        setForm(initialForm)
+        await setAsyncStorage(updateTransactions)
+
+        Alert.alert("Transactions added successfully.");
     }  
 
     return (
