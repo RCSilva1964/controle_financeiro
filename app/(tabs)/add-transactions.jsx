@@ -7,6 +7,7 @@ import CategoryPicker from "../../components/CategoryPicker"
 import CurrencyInput from "../../components/CurrencyInput"
 import DatePicker from "../../components/DatePicker"
 import DescriptionInput from "../../components/DescriptionInput"
+import { categories } from "../../constants/categories"
 import { MoneyContext } from "../../contexts/GlobalState"
 import { globalStyles } from "../../styles/globalStyles"
 
@@ -14,7 +15,7 @@ const initialForm = {
         description: "",
         value: 0,
         date: new Date(),
-        category: "Renda"
+        category: categories.income.name
     }
 
 export default function AddTransactions() {
