@@ -38,7 +38,7 @@ export default function AddTransactions() {
         setForm(initialForm)
         await setAsyncStorage(updateTransactions)
 
-        Alert.alert("Transactions added successfully.");
+        Alert.alert("Transação adicionada com sucesso!");
     }  
 
     return (

@@ -3,13 +3,6 @@ import { categories } from "../constants/categories"
 import { globalStyles } from "../styles/globalStyles"
 import CategoryItem from "./CategoryItem"
 
-const example = {
-    id: 1,
-    category: "food",
-    date: "December 17, 1995 03:24:00",
-    description: "Marmita",
-    value: 50.00
-}
 
 export default function TransactionItem({ category, date, description, value }) {
 
