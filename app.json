@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "controle_financeiro",
-    "slug": "controle_financeiro",
+    "slug": "controlefinanceiro",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/splash-icon.png",
     "scheme": "controlefinanceiro",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,    
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
@@ -16,10 +16,11 @@
         "foregroundImage": "./assets/images/splash-icon.png",
         "backgroundImage": "./assets/images/splash-icon.png",
         "monochromeImage": "./assets/images/splash-icon.png",
-        "backgroundColor": "#E6F4FE"      
+        "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.rcosta1964.controlefinanceiro"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "61f0b30a-00c6-418a-9e70-22089f7ea23e"
+      }
+    },
+    "owner": "rcosta1964"
   }
 }
